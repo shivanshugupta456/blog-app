@@ -43,6 +43,9 @@ try {
 // defining routes
 app.use("/api/users", userRoute);
 app.use("/api/blogs", blogRoute);
+
+
+
 // Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,

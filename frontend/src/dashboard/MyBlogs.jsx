@@ -41,7 +41,7 @@ function MyBlogs() {
           {myBlogs && myBlogs.length > 0 ? (
             myBlogs.map((element) => (
               <div
-                className="bg-white shadow-lg rounded-lg overflow-hidden"
+                className="bg-white shadow-lg rounded-lg ml-14 overflow-hidden"
                 key={element._id}
               >
                 {element?.blogImage && (

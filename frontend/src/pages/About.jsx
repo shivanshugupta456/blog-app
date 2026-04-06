@@ -46,7 +46,7 @@ function About() {
       </p>
       <br />
       <span>
-        Akhil K is dedicated to leveraging his expertise to contribute to
+        Shivanshu is dedicated to leveraging his expertise to contribute to
         innovative projects and drive technological advancements. Whether
         working on front-end interfaces or back-end logic, he is passionate
         about delivering exceptional digital solutions that meet user needs and
@@ -56,13 +56,17 @@ function About() {
         Personal Interests and Inspiration:
       </h2>
       <p>
-        Beyond his professional achievements, Akhil is a big fan of cricket and
+        Beyond his professional achievements, shivanshu is a big fan of cricket and
         holds immense admiration for <strong> King Kohli.</strong> His favorite
         person and biggest inspiration is his twin brother,{" "}
-        <strong>Ankush.</strong> Their friendly rivalry and deep bond have
-        significantly shaped Akhil’s journey. Ankush is not only a great
-        competitor but also a steadfast friend, constantly motivating Akhil to
-        strive for excellence.
+        <strong>Aayush.</strong> Their friendly rivalry and deep bond have
+        significantly shaped Shivanshu’s journey. Aayush is not only a great
+        competitor but also a steadfast friend, constantly motivating shivanshu to
+        strive for excellence. The dynamic between the two brothers has been a source of strength and inspiration, driving shivanshu to push his limits and achieve his goals in both his personal and professional life.
+      </p>
+      <p>
+        In his free time, shivanshu enjoys exploring new technologies, contributing to open-source projects, and engaging in activities that foster creativity and innovation. He is committed to continuous growth and is always eager to take on new challenges that allow him to expand his skill set and make a meaningful impact in the tech community.
+        With a blend of technical prowess, a passion for learning, and a strong support system, shivanshu is poised to make significant contributions to the world of technology and beyond.
       </p>
     </div>
   );

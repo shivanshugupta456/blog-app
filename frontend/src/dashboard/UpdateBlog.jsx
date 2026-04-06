@@ -100,6 +100,18 @@ function UpdateBlog() {
                 <option value="Coding">Coding</option>
                 <option value="Entertainment">Entertainment</option>
                 <option value="Business">Business</option>
+                 <option value="Politics">Politics</option>
+                <option value="Science">Science</option>
+                <option value="Health">Health</option>
+                <option value="Travel">Travel</option>
+                <option value="Food">Food</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Music">Music</option>
+                <option value="Movies">Movies</option>
+                <option value="Books">Books</option>
+                <option value="Games">Games</option>
+                <option value="Other">Other</option>
+
               </select>
             </div>
             <input
@@ -137,7 +149,7 @@ function UpdateBlog() {
             />
 
             <button
-              className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="w-full p-3 bg-blue-600  text-white rounded-md hover:bg-blue-700"
               onClick={handleUpdate}
             >
               UPDATE
