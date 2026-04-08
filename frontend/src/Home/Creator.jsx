@@ -17,7 +17,7 @@ function Creator() {
   }, []);
 
   return (
-    <section className="px-4 pb-14 pt-12 sm:px-6 lg:px-8">
+    <section className="section-reveal px-4 pb-14 pt-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -74,8 +74,15 @@ function Creator() {
               );
             })
           ) : (
-            <div className="col-span-full flex min-h-[14rem] items-center justify-center rounded-[1.5rem] border border-dashed border-slate-300 bg-white/70 text-slate-500">
-              Loading...
+            <div className="col-span-full grid gap-6 rounded-[1.5rem] border border-dashed border-slate-300 bg-white/70 p-4 sm:grid-cols-2 xl:grid-cols-4">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white/80 p-4">
+                  <div className="loading-sheen h-36 rounded-[1.25rem]" />
+                  <div className="mx-auto -mt-10 h-20 w-20 rounded-3xl border-4 border-white loading-sheen" />
+                  <div className="mt-5 loading-sheen h-6 w-3/4 rounded-2xl mx-auto" />
+                  <div className="mt-3 loading-sheen h-5 w-1/2 rounded-2xl mx-auto" />
+                </div>
+              ))}
             </div>
           )}
         </div>

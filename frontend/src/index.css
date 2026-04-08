@@ -5,15 +5,75 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --brand-ink: #020617;
+    --brand-sky: #0284c7;
+    --brand-mist: #e0f2fe;
+    --brand-warm: #f59e0b;
+    --surface: rgba(255,255,255,0.82);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f8ff;
-   
+    background:
+      radial-gradient(circle at top, rgba(224, 242, 254, 0.95), transparent 38%),
+      linear-gradient(180deg, #f8fbff 0%, #f8fafc 45%, #fffdf5 100%);
+    color: var(--brand-ink);
 }
+
 h1,h2,h3,h4,h5,h6{
     font-family: 'Roboto', sans-serif;
 }
 
 span{
     font-family: 'Fredoka', sans-serif;
+}
+
+::selection{
+    background: rgba(2, 132, 199, 0.18);
+    color: #0f172a;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sheen {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.section-reveal{
+    animation: fade-up 0.7s ease-out both;
+}
+
+.premium-card{
+    background: var(--surface);
+    backdrop-filter: blur(14px);
+}
+
+.loading-sheen{
+    background: linear-gradient(
+        90deg,
+        rgba(226, 232, 240, 0.65) 25%,
+        rgba(248, 250, 252, 0.95) 50%,
+        rgba(226, 232, 240, 0.65) 75%
+    );
+    background-size: 200% 100%;
+    animation: sheen 1.4s linear infinite;
 }

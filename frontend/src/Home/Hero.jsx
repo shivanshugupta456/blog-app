@@ -6,8 +6,8 @@ function Hero() {
   const { blogs } = useAuth();
 
   return (
-    <section className="px-4 pt-8 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/70 bg-[radial-gradient(circle_at_top,#ecfeff_0%,#f8fafc_50%,#ffffff_100%)] shadow-[0_30px_120px_rgba(15,23,42,0.12)]">
+    <section className="section-reveal px-4 pt-8 sm:px-6 lg:px-8">
+      <div className="premium-card mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/70 bg-[radial-gradient(circle_at_top,#ecfeff_0%,#f8fafc_50%,#ffffff_100%)] shadow-[0_30px_120px_rgba(15,23,42,0.12)]">
         <div className="grid gap-6 p-6 lg:grid-cols-[1.08fr_0.92fr] lg:p-8">
           <div className="rounded-[1.75rem] bg-[linear-gradient(135deg,#020617_0%,#0f172a_45%,#0369a1_100%)] p-8 text-white shadow-[0_24px_80px_rgba(15,23,42,0.28)]">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-200">
@@ -71,8 +71,14 @@ function Hero() {
                 </Link>
               ))
             ) : (
-              <div className="col-span-full flex min-h-[20rem] items-center justify-center rounded-[1.5rem] border border-dashed border-slate-300 bg-white/70 text-slate-500">
-                Loading...
+              <div className="col-span-full grid min-h-[20rem] gap-4 rounded-[1.5rem] border border-dashed border-slate-300 bg-white/70 p-4 sm:grid-cols-2">
+                <div className="loading-sheen rounded-[1.25rem]" />
+                <div className="space-y-4 rounded-[1.25rem] border border-slate-200 bg-white/70 p-4">
+                  <div className="loading-sheen h-6 w-24 rounded-full" />
+                  <div className="loading-sheen h-8 w-full rounded-2xl" />
+                  <div className="loading-sheen h-8 w-5/6 rounded-2xl" />
+                  <div className="loading-sheen h-12 w-40 rounded-2xl" />
+                </div>
               </div>
             )}
           </div>

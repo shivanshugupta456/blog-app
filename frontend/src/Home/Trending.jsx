@@ -27,7 +27,7 @@ function Trending() {
   };
 
   return (
-    <section className="px-4 py-12 sm:px-6 lg:px-8">
+    <section className="section-reveal px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -82,8 +82,13 @@ function Trending() {
               );
             })
           ) : (
-            <div className="flex min-h-[14rem] items-center justify-center text-slate-500">
-              Loading...
+            <div className="mx-2 overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/85 p-4 shadow-[0_18px_60px_rgba(148,163,184,0.16)]">
+              <div className="loading-sheen h-56 rounded-[1.2rem]" />
+              <div className="mt-4 space-y-3">
+                <div className="loading-sheen h-5 w-24 rounded-full" />
+                <div className="loading-sheen h-7 w-full rounded-2xl" />
+                <div className="loading-sheen h-7 w-4/5 rounded-2xl" />
+              </div>
             </div>
           )}
         </Carousel>

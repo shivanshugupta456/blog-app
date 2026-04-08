@@ -7,8 +7,8 @@ function Devotional() {
   const devotionalBlogs = blogs?.filter((blog) => blog.category === "Devotion");
 
   return (
-    <section className="px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,#fffdf5_0%,#ffffff_100%)] p-6 shadow-[0_24px_90px_rgba(148,163,184,0.14)] sm:p-8">
+    <section className="section-reveal px-4 py-12 sm:px-6 lg:px-8">
+      <div className="premium-card mx-auto max-w-7xl rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,#fffdf5_0%,#ffffff_100%)] p-6 shadow-[0_24px_90px_rgba(148,163,184,0.14)] sm:p-8">
         <div className="mb-10 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
             Devotional Collection
@@ -48,8 +48,15 @@ function Devotional() {
               </Link>
             ))
           ) : (
-            <div className="col-span-full flex min-h-[14rem] items-center justify-center rounded-[1.5rem] border border-dashed border-slate-300 bg-white/70 text-slate-500">
-              Loading...
+            <div className="col-span-full grid gap-4 rounded-[1.5rem] border border-dashed border-slate-300 bg-white/70 p-4 sm:grid-cols-2 xl:grid-cols-4">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="rounded-[1.25rem] border border-slate-200 bg-white/80 p-4">
+                  <div className="loading-sheen h-48 rounded-[1rem]" />
+                  <div className="mt-4 loading-sheen h-5 w-24 rounded-full" />
+                  <div className="mt-3 loading-sheen h-6 w-full rounded-2xl" />
+                  <div className="mt-3 loading-sheen h-6 w-5/6 rounded-2xl" />
+                </div>
+              ))}
             </div>
           )}
         </div>
