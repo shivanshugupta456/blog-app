@@ -8,7 +8,6 @@ function Contact() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -26,91 +25,105 @@ function Contact() {
       toast.error("An error occurred");
     }
   };
+
   return (
-    <div>
-      <div className="bg-gray-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl w-full space-y-8 bg-white p-10 rounded-lg shadow-lg">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">
-              Contact Us
+    <div className="bg-[radial-gradient(circle_at_top,#dbeafe_0%,#f8fafc_40%,#fde68a_100%)] px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 shadow-[0_30px_120px_rgba(15,23,42,0.14)] backdrop-blur-xl">
+        <div className="grid gap-8 p-8 lg:grid-cols-[0.95fr_1.05fr] lg:p-12">
+          <div className="rounded-[1.75rem] bg-[linear-gradient(135deg,#0f172a_0%,#0369a1_60%,#f59e0b_100%)] p-8 text-white shadow-[0_20px_60px_rgba(15,23,42,0.22)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-100">
+              Contact
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight">
+              Let&apos;s talk about ideas, products, and better web experiences.
             </h2>
+            <p className="mt-5 text-sm leading-7 text-slate-200">
+              Reach out for feedback, collaboration, or project conversation.
+              The response space is designed to feel as refined as the rest of
+              the product.
+            </p>
+            <ul className="mt-8 space-y-5">
+              <li className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+                <FaPhone className="text-amber-300" />
+                <span>+91 9368220357</span>
+              </li>
+              <li className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+                <FaEnvelope className="text-pink-300" />
+                <span>rajkishoregupta716@gmail.com</span>
+              </li>
+              <li className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+                <FaMapMarkerAlt className="text-emerald-300" />
+                <span>Firozabad, Uttar Pradesh, India</span>
+              </li>
+            </ul>
           </div>
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-4">
-              <h3 className="text-lg font-medium text-gray-700 mb-4">
-                Send us a message
-              </h3>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    name="username"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    {...register("username", { required: true })}
-                  />
-                  {errors.username && (
-                    <span className="text-sm text-red-500 font-semibold">
-                      This field is required
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    {...register("email", { required: true })}
-                  />
-                  {errors.email && (
-                    <span className="text-sm text-red-500 font-semibold">
-                      This field is required
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    {...register("message", { required: true })}
-                  />
-                  {errors.message && (
-                    <span className="text-sm text-red-500 font-semibold">
-                      This field is required
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-yellow-600 duration-300 "
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div className="w-full md:w-1/2 md:pl-4">
-              <h3 className="text-lg font-medium text-gray-700 mb-4">
-                Contact Information
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-center space-x-2">
-                  <FaPhone className="text-red-500" />
-                  <span>+91 9368220357</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <FaEnvelope className="text-pink-500" />
-                  <span>rajkishoregupta716@gmail.com</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <FaMapMarkerAlt className="text-green-500" />
-                  <span>firozabad, up, India</span>
-                </li>
-              </ul>
-            </div>
+          <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(148,163,184,0.16)]">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Send a message
+            </h3>
+            <p className="mt-3 text-sm leading-7 text-slate-500">
+              Share your thoughts and we will keep the conversation moving.
+            </p>
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Your Name"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition duration-300 focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
+                  {...register("username", { required: true })}
+                />
+                {errors.username && (
+                  <span className="mt-2 block text-sm font-semibold text-red-500">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition duration-300 focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
+                  {...register("email", { required: true })}
+                />
+                {errors.email && (
+                  <span className="mt-2 block text-sm font-semibold text-red-500">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  className="w-full rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 outline-none transition duration-300 focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
+                  {...register("message", { required: true })}
+                />
+                {errors.message && (
+                  <span className="mt-2 block text-sm font-semibold text-red-500">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="w-full rounded-2xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-sky-600"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

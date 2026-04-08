@@ -54,17 +54,34 @@ function CreateBlog() {
     }
   };
   return (
-    <div>
-      <div className="min-h-screen  py-10">
-        <div className="max-w-4xl mx-auto p-6 border  rounded-lg shadow-lg">
-          <h3 className="text-2xl font-semibold mb-8">Create Blog</h3>
-          <form onSubmit={handleCreateBlog} className="space-y-6">
-            <div className="space-y-2">
-              <label className="block text-lg">Category</label>
+    <div className="space-y-8">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-600">
+          New Story
+        </p>
+        <h2 className="mt-2 text-3xl font-semibold text-slate-900">
+          Create a premium-looking post
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-slate-500">
+          Build your next article with a richer cover image, stronger title, and
+          a clear editorial structure.
+        </p>
+      </div>
+
+      <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+        <form
+          onSubmit={handleCreateBlog}
+          className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(148,163,184,0.18)] sm:p-8"
+        >
+          <div className="grid gap-5 md:grid-cols-2">
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-700">
+                Category
+              </label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-400 rounded-md outline-none"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 outline-none transition duration-300 focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
               >
                 <option value="">Select Category</option>
                 <option value="Devotion">Devotion</option>
@@ -86,51 +103,69 @@ function CreateBlog() {
               </select>
             </div>
 
-            <div className="space-y-2">
-              <label className="block text-lg">Title</label>
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-700">
+                Title
+              </label>
               <input
                 type="text"
                 placeholder="Enter your blog title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-400   rounded-md outline-none"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 outline-none transition duration-300 focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
               />
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <label className="block text-lg">Blog Image</label>
-              <div className="flex items-center justify-center">
-                <img
-                  src={blogImagePreview ? `${blogImagePreview}` : "/imgPL.webp"}
-                  alt="Image"
-                  className="w-full max-w-sm h-auto rounded-md object-cover"
-                />
-              </div>
-              <input
-                type="file"
-                onChange={changePhotoHandler}
-                className="w-full px-3 py-2 border border-gray-400   rounded-md outline-none"
+          <div className="mt-5">
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              About
+            </label>
+            <textarea
+              rows="8"
+              placeholder="Write something about your blog"
+              value={about}
+              onChange={(e) => setAbout(e.target.value)}
+              className="w-full rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 text-slate-700 outline-none transition duration-300 focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="mt-6 w-full rounded-2xl bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-sky-600"
+          >
+            Post Blog
+          </button>
+        </form>
+
+        <div className="space-y-6">
+          <div className="rounded-[1.75rem] border border-slate-200 bg-[linear-gradient(135deg,#0f172a_0%,#0369a1_70%,#38bdf8_100%)] p-6 text-white shadow-[0_20px_60px_rgba(15,23,42,0.24)]">
+            <p className="text-xs uppercase tracking-[0.3em] text-sky-100">
+              Cover Preview
+            </p>
+            <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-white/10 p-3 backdrop-blur-sm">
+              <img
+                src={blogImagePreview ? `${blogImagePreview}` : "/imgPL.webp"}
+                alt="Image"
+                className="h-64 w-full rounded-[1.1rem] object-cover"
               />
             </div>
+            <input
+              type="file"
+              onChange={changePhotoHandler}
+              className="mt-4 w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:font-semibold file:text-slate-900"
+            />
+          </div>
 
-            <div className="space-y-2">
-              <label className="block text-lg">About</label>
-              <textarea
-                rows="5"
-                placeholder="Write something about your blog"
-                value={about}
-                onChange={(e) => setAbout(e.target.value)}
-                className="w-full px-3 py-2  border border-gray-400  rounded-md outline-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200"
-            >
-              Post Blog
-            </button>
-          </form>
+          <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(148,163,184,0.18)]">
+            <p className="text-xs uppercase tracking-[0.3em] text-amber-500">
+              Publishing Note
+            </p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Strong titles, clear categories, and a good cover image make your
+              content feel more trustworthy and easier to discover.
+            </p>
+          </div>
         </div>
       </div>
     </div>
