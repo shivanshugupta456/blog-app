@@ -3,12 +3,12 @@ import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+
 function Trending() {
   const { blogs } = useAuth();
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -25,57 +25,70 @@ function Trending() {
       items: 1,
     },
   };
+
   return (
-    <div className=" container mx-auto">
-      <h1 className=" text-2xl font-semibold mb-4">Trending</h1>
-      <Carousel responsive={responsive}>
-        {blogs && blogs.length > 0 ? (
-          blogs.slice(0, 6).map((element) => {
-            return (
-              <div
-                key={element._id}
-                className="p-4 bg-white border border-gray-400 rounded-lg shadow-md mx-2"
-              >
-                <Link to={`/blog/${element._id}`}>
-                  <div className="relative">
-                    <img
-                      src={element.blogImage.url}
-                      alt="blog"
-                      className="w-full h-56 object-cover rounded-t-lg"
-                    />
-                    <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
-                      {element.category}
-                    </div>
-                  </div>
-                  <div className="p-4 bg-gray-50 rounded-b-lg h-36 flex flex-col justify-between">
-                    <h1
-                      className="text-lg font-bold mb-2 overflow-hidden text-ellipsis"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
-                      {element.title}
-                    </h1>
-                    <div className="flex items-center">
-                      <img
-                        src={element.adminPhoto}
-                        alt="author_avatar"
-                        className="w-10 h-10 rounded-full"
-                      />
-                      <p className="ml-3 text-gray-400 text-sm">
-                        {element.adminName}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })
-        ) : (
-          <div className=" flex h-screen items-center justify-center">
-            Loading....
+    <section className="px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-600">
+              Trending Now
+            </p>
+            <h2 className="mt-3 text-4xl font-semibold text-slate-900">
+              Stories readers notice first
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
+              Swipe through standout categories, refined cards, and creator-led
+              articles that deserve the spotlight.
+            </p>
           </div>
-        )}
-      </Carousel>
-    </div>
+        </div>
+        <Carousel responsive={responsive}>
+          {blogs && blogs.length > 0 ? (
+            blogs.slice(0, 6).map((element) => {
+              return (
+                <div
+                  key={element._id}
+                  className="mx-2 overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/85 shadow-[0_18px_60px_rgba(148,163,184,0.16)]"
+                >
+                  <Link to={`/blog/${element._id}`}>
+                    <div className="relative">
+                      <img
+                        src={element.blogImage.url}
+                        alt="blog"
+                        className="h-56 w-full object-cover"
+                      />
+                      <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
+                        {element.category}
+                      </div>
+                    </div>
+                    <div className="flex h-40 flex-col justify-between bg-white p-5">
+                      <h3 className="line-clamp-2 text-xl font-semibold text-slate-900">
+                        {element.title}
+                      </h3>
+                      <div className="flex items-center">
+                        <img
+                          src={element.adminPhoto}
+                          alt="author_avatar"
+                          className="h-10 w-10 rounded-2xl object-cover"
+                        />
+                        <p className="ml-3 text-sm text-slate-500">
+                          {element.adminName}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })
+          ) : (
+            <div className="flex min-h-[14rem] items-center justify-center text-slate-500">
+              Loading...
+            </div>
+          )}
+        </Carousel>
+      </div>
+    </section>
   );
 }
 

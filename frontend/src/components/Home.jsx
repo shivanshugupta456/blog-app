@@ -6,7 +6,7 @@ import Creator from "../Home/Creator";
 
 function Home() {
   return (
-    <div>
+    <div className="bg-[linear-gradient(180deg,#f8fbff_0%,#f8fafc_40%,#fffdf5_100%)]">
       <Hero />
       <Trending />
       <Devotional />
